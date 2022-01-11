@@ -11,8 +11,27 @@ public class movePlayer : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public void Recoil()
+    {
+        float sideRecoil = 0f;
+        if (!facingRight)
+        {
+            sideRecoil = 1f;
+        }
+        else sideRecoil = -1f;
+        //rb.velocity = Vector2.up * 7;
+        rb.transform.Translate(new Vector2(sideRecoil * 0.06f, 0.02f));
+    }
+
+    public static movePlayer Instance { get; private set; }
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private bool isGrounded;
     public Transform feetPos;
+    public Transform shotPoint;
     public float checkRad;
     public LayerMask whatIsGround;
 
@@ -33,6 +52,7 @@ public class movePlayer : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+        shotPoint.Rotate(0f, 180f, 0f);
     }
 
     private void Update()
@@ -48,7 +68,7 @@ public class movePlayer : MonoBehaviour
             else
             {
                 y2 = transform.position.y;
-                if (Mathf.Abs(y1 - y2) >= 5)
+                if (Mathf.Abs(y1 - y2) >= 10)
                 {
                     shakeCamera.Instance.Shake(true);
                 }
@@ -70,7 +90,7 @@ public class movePlayer : MonoBehaviour
                 }
             }
         }
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.W))
         {
             takeOff = true;
             rb.velocity = Vector2.up * jumpForce;
