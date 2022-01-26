@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour
     {
         if (timeBtwShots <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && switchWeapon.Instance.weaponSwitch == 1)
             {
                 shakeCamera.Instance.ShakeRecoil(true);
                 Instantiate(bullet, shotPoint.position, shotPoint.rotation);

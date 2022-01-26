@@ -6,9 +6,9 @@ public class movePlayer : MonoBehaviour
 {
     public float speedRun;
     public float jumpForce;
-
+    public int health;
+    public GameObject deathEffect;
     private float moveInput;
-
     private Rigidbody2D rb;
 
     public void Recoil()
@@ -91,9 +91,15 @@ public class movePlayer : MonoBehaviour
             }
         }
         if (isGrounded == true && Input.GetKeyDown(KeyCode.W))
+        //if (Input.GetKeyDown(KeyCode.W))
         {
             takeOff = true;
             rb.velocity = Vector2.up * jumpForce;
+        }
+        if (health <= 0)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 
@@ -109,5 +115,9 @@ public class movePlayer : MonoBehaviour
         {
             Flip();
         }
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
