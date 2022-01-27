@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637786298132402552
-    m_Hash: 3873872218
+      ticks: 637787554430454004
+    m_Hash: 2071918753
   m_LockFileStatus:
     m_FilePath: D:/Unity/Choice_of_the_Soul/Choice of the Soul/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637786298133203453
-    m_Hash: 1636111557
+      ticks: 637787554430454004
+    m_Hash: 1609652181
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -1501,10 +1501,12 @@ m_PackageAssets:
         - 1.1.29
         - 1.1.30
         - 2.0.1-pre.12
+        - 2.0.1-pre.18
         compatible:
         - 1.1.29
         - 1.1.30
         - 2.0.1-pre.12
+        - 2.0.1-pre.18
         verified: 1.1.30
       dependencies:
       - name: com.unity.ext.nunit
