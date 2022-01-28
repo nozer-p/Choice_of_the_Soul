@@ -6,10 +6,11 @@ public class movePlayer : MonoBehaviour
 {
     public float speedRun;
     public float jumpForce;
-    public int health;
+    public float health;
     public GameObject deathEffect;
     private float moveInput;
     private Rigidbody2D rb;
+    private healthBar hb;
 
     public void Recoil()
     {
@@ -24,6 +25,7 @@ public class movePlayer : MonoBehaviour
     }
 
     public static movePlayer Instance { get; private set; }
+
     private void Awake()
     {
         Instance = this;
@@ -37,6 +39,7 @@ public class movePlayer : MonoBehaviour
 
     private void Start()
     {
+        hb = FindObjectOfType<healthBar>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -96,7 +99,7 @@ public class movePlayer : MonoBehaviour
             takeOff = true;
             rb.velocity = Vector2.up * jumpForce;
         }
-        if (health <= 0)
+        if (health <= 0f)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
@@ -107,17 +110,19 @@ public class movePlayer : MonoBehaviour
     {
         moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * speedRun, rb.velocity.y);
-        if (!facingRight && moveInput > 0)
+        if (!facingRight && moveInput > 0f)
         {
             Flip();
         }
-        else if (facingRight && moveInput < 0)
+        else if (facingRight && moveInput < 0f)
         {
             Flip();
         }
     }
-    public void TakeDamage(int damage)
+
+    public void TakeDamage(float damage)
     {
+        hb.TakeDamageFill(damage);
         health -= damage;
     }
 }

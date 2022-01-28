@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float lifeTime;
     public float distance;
-    public int damage;
+    public float damage;
     public LayerMask whatIsSolid;
     public LayerMask whatIsWall;
 

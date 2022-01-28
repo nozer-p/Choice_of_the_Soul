@@ -6,6 +6,7 @@ using Cinemachine;
 public class shakeCamera : MonoBehaviour
 {
     public static shakeCamera Instance { get; private set; }
+
     private void Awake()
     {
         Instance = this;

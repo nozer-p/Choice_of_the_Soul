@@ -7,14 +7,15 @@ public class Enemy : MonoBehaviour
     private float timeBtwAttack;
     public float startTimeBtwAttack;
 
-    public int health;
+    public float health;
     public float speed;
-    public int damage;
+    public float damage;
     public GameObject deathEffect;
     private float stopTime;
     public float startStopTime;
     public float normalSpeed;
-    //private movePlayer player;
+    private scoreManager number;
+    private healthBar hb;
 
     public Transform attackPos;
     public LayerMask whatIsPlayer;
@@ -22,13 +23,14 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        //player = FindObjectOfType<movePlayer>();
+        hb = FindObjectOfType<healthBar>();
+        number = FindObjectOfType<scoreManager>();
         normalSpeed = speed;
     }
 
     private void Update()
     {
-        if (timeBtwAttack <= 0)
+        if (timeBtwAttack <= 0f)
         {
            Collider2D[] player = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
            for (int i = 0; i < player.Length; i++)
@@ -42,19 +44,22 @@ public class Enemy : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
 
-        if (stopTime <= 0)
+        if (stopTime <= 0f)
         {
             speed = normalSpeed;
         }
         else
         {
-            speed = 0;
+            speed = 0f;
             stopTime -= Time.deltaTime;
         }
 
-        if (health <= 0)
+        if (health <= 0f)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
+            number.Kill();
+            float chance = Random.Range(0f, 100f);
+            if (chance >= 80f) hb.TakeHealthFill(Random.Range(0f, 2f));
             Destroy(gameObject);
         }
 
@@ -82,7 +87,7 @@ public class Enemy : MonoBehaviour
         player.health -= damage;
     }*/
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         stopTime = startStopTime;
         health -= damage;

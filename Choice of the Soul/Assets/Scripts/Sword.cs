@@ -12,13 +12,13 @@ public class Sword : MonoBehaviour
     public LayerMask whatIsGround;
     //private bool wall;
     public float attackRange;
-    public int damage;
+    public float damage;
 
     private void Update()
     {
         //wall = Physics2D.OverlapCircle(attackPos.position, attackRange, whatIsGround);
         //if (!wall && timeBtwAttack <= 0)
-        if (timeBtwAttack <= 0)
+        if (timeBtwAttack <= 0f)
         {
             if (Input.GetKeyDown(KeyCode.Space) && switchWeapon.Instance.weaponSwitch == 0)
             {

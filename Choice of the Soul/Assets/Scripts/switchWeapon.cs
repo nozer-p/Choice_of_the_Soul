@@ -5,6 +5,7 @@ using UnityEngine;
 public class switchWeapon : MonoBehaviour
 { 
     public static switchWeapon Instance { get; private set; }
+
     private void Awake()
     {
         Instance = this;

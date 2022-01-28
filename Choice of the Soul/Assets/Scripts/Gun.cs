@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (timeBtwShots <= 0)
+        if (timeBtwShots <= 0f)
         {
             if (Input.GetKeyDown(KeyCode.Space) && switchWeapon.Instance.weaponSwitch == 1)
             {
