@@ -62,9 +62,10 @@
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\shakeCamera.cs" />
     <Compile Include="Assets\Scripts\Sword.cs" />
-    <Compile Include="Assets\Scripts\switchWeapon.cs" />
     <Compile Include="Assets\Scripts\healthBar.cs" />
+    <Compile Include="Assets\Scripts\switchWeapon.cs" />
     <Compile Include="Assets\Scripts\scoreManager.cs" />
+    <Compile Include="Assets\Scripts\partColl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

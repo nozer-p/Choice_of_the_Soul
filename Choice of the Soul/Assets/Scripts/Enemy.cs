@@ -21,6 +21,10 @@ public class Enemy : MonoBehaviour
     public LayerMask whatIsPlayer;
     public float attackRange;
 
+    private Material matBlink;
+    private Material matDefaultk;
+    private SpriteRenderer spriteRend;
+
     private void Start()
     {
         hb = FindObjectOfType<healthBar>();
