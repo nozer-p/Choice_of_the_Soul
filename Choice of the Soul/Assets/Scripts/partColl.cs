@@ -8,15 +8,22 @@ public class partColl : MonoBehaviour
     public GameObject splatPrefab;
     public Transform splatHolder;
     private List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
-    public AudioSource audioSource;
-    public AudioClip[] sounds;
+    private AudioSource audioSource;
+    public AudioClip[] soundsDeath;
+    public AudioClip[] soundsSplat;
     public float soundCapResetSpeed = 0.55f;
     public int maxSounds = 3;
     float timePassed;
     int soundsPlayed;
 
+    private GameObject player;
+
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        audioSource = player.GetComponent<AudioSource>();
+        audioSource.pitch = 2.1f;
+        audioSource.PlayOneShot(soundsDeath[Random.Range(0, soundsDeath.Length)]);
         particle = GetComponent<ParticleSystem>();
     }
 
@@ -43,7 +50,7 @@ public class partColl : MonoBehaviour
             {
                 soundsPlayed += 1;
                 audioSource.pitch = Random.Range(0.9f, 1.1f);
-                audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Length)], Random.Range(0.1f, 0.35f));
+                audioSource.PlayOneShot(soundsSplat[Random.Range(0, soundsSplat.Length)], Random.Range(0.1f, 0.35f));
             }
         }
     }

@@ -4877,8 +4877,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splatPrefab: {fileID: 3226980403437126903, guid: ea6f924815cd2984f84adf607a7a53fb, type: 3}
   splatHolder: {fileID: 0}
-  audioSource: {fileID: 5958132331421356784, guid: 9e9af4e66b8643f47bba7905accc470d, type: 3}
-  sounds:
+  soundsDeath:
+  - {fileID: 8300000, guid: 7cb9057e28b7d9941bd2d9f5a728ae5a, type: 3}
+  soundsSplat:
   - {fileID: 8300000, guid: bf05837a2233b8547a56da842c129394, type: 3}
-  soundCapResetSpeed: 0.55
+  - {fileID: 8300000, guid: 4d0aba20efcdaea46a05655dcf1c2cef, type: 3}
+  - {fileID: 8300000, guid: 3ade3379ed610e94f85271fcd6b53d76, type: 3}
+  - {fileID: 8300000, guid: a182f396d4ccb8143999fa49683945de, type: 3}
+  - {fileID: 8300000, guid: b43827f1d50eb294e8a8ec1d2f7ec4e5, type: 3}
+  soundCapResetSpeed: 0.5
   maxSounds: 3
